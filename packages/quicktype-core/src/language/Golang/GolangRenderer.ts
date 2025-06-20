@@ -254,9 +254,10 @@ export class GoRenderer extends ConvenienceRenderer {
             const omitEmpty = canOmitEmpty(p, this._options.omitEmpty) ? ",omitempty" : [];
 
             docStrings.forEach(doc => columns.push([doc]));
+            const fieldTagName = this._options.useCamelCaseFieldTags ? camelCase(jsonName) : jsonName;
             const tags = this._options.fieldTags
                 .split(",")
-                .map(tag => tag + ':"' + stringEscape(jsonName) + omitEmpty + '"')
+                .map(tag => tag + ':"' + stringEscape(fieldTagName) + omitEmpty + '"')
                 .join(" ");
             columns.push([
                 [name, " "],

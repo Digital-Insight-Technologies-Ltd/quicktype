@@ -20,6 +20,7 @@ export const goOptions = {
     ),
     enumTypeNameSuffix: new BooleanOption("enum-type-name-suffix", "Appends the type name to enum contracts", false),
     includeConstructors: new BooleanOption("include-constructors", "Adds a constructor for each struct type", false),
+    useCamelCaseFieldTags: new BooleanOption("camel-case-field-tags", "Uses camel case field tags", false)
 };
 
 export class GoTargetLanguage extends TargetLanguage {
@@ -37,6 +38,7 @@ export class GoTargetLanguage extends TargetLanguage {
             goOptions.omitEmpty,
             goOptions.enumTypeNameSuffix,
             goOptions.includeConstructors,
+            goOptions.useCamelCaseFieldTags
         ];
     }
 
